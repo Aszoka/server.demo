@@ -50,7 +50,7 @@ public class ServerServiceImpl implements ServerService {
 
     @Override
     public Server get(Long id) {
-        return null;
+        return serverRepo.findById(id).get();
     }
 
     @Override

@@ -96,6 +96,6 @@ public class ServerResource {
     // by default we return json but defining produces we return a png type image
     @GetMapping(path ="/image/{name}", produces = IMAGE_PNG_VALUE)
     public byte[] getServerImage(@PathVariable("name") String name) throws IOException {
-        return Files.readAllBytes(Paths.get("D:/programing/fullstack/spring-angular/images" + name));
+        return Files.readAllBytes(Paths.get("D:/programing/fullstack/spring-angular/images/" + name));
     }
 }
