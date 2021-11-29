@@ -16,6 +16,8 @@ import java.net.InetAddress;
 import java.util.Collection;
 import java.util.Random;
 
+import static java.lang.Boolean.TRUE;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -50,17 +52,21 @@ public class ServerServiceImpl implements ServerService {
 
     @Override
     public Server get(Long id) {
-        return null;
+        log.info("Fetching server by id: {}", id);
+        return serverRepo.findById(id).get();
     }
 
     @Override
     public Server update(Server server) {
-        return null;
+        log.info("Updating server {}", server.getName());
+        return serverRepo.save(server);
     }
 
     @Override
     public Boolean delete(Long id) {
-        return null;
+        log.info("Delete server by id: {}", id);
+        serverRepo.deleteById(id);
+        return TRUE;
     }
 
     // selects a random picture from the images folder
